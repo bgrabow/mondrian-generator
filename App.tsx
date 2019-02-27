@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, RefreshControl } from 'react-native';
+import { mondrianColorPalette } from './Mondrian';
 
 function randomElement(coll: ArrayLike<any>) {
   return coll[Math.floor(Math.random() * coll.length)];
@@ -15,12 +16,14 @@ interface Comment {
 
 export default class App extends React.Component {
   _comments = [];
+  newColor = mondrianColorPalette();
   state = {
-    text: randomElement(this._comments)
+    text: randomElement(this._comments),
+    color: "no color"
   }
 
   updateText() {
-    this.setState({...this.state, text: randomElement(this._comments)});
+    this.setState({...this.state, text: randomElement(this._comments), color: this.newColor()});
   }
 
   componentDidMount() {
@@ -36,6 +39,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container} onTouchStart={() => this.updateText()}>
         <Text>{this.state.text}</Text>
+        <Text>{this.state.color}</Text>
       </View>
     );
   }

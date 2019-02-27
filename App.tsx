@@ -19,18 +19,22 @@ export default class App extends React.Component {
     text: randomElement(this._comments)
   }
 
+  updateText() {
+    this.setState({...this.state, text: randomElement(this._comments)});
+  }
+
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/comments')
       .then(response => response.json())
       .then(json => {
         this._comments = json.map((commentObj: Comment) => commentObj.body);
       })
-      .then(() => this.setState({...this.state, text: randomElement(this._comments)}));
+      .then(() => this.updateText());
   }
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.container} onTouchStart={() => this.updateText()}>
         <Text>{this.state.text}</Text>
       </View>
     );

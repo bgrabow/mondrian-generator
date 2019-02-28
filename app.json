@@ -23,7 +23,11 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "me.bgrabow.mondrian_generator",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "me.bgrabow.mondrian_generator"
     }
   }
 }

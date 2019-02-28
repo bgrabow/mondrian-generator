@@ -1,7 +1,7 @@
 # mondrian-generator
 Randomly generated art a-la Piet Mondrian
 
-![](assets/icon.png?raw=true)
+<img width="50%" alt="example art" src="assets/icon.png">
 
 ## License
 
